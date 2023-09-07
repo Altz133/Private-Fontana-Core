@@ -111,7 +111,10 @@ public class DMXValidatorService {
 
     @PostConstruct
     public void init() throws IOException {
-        sensors = sensorsHandlerService.getSensors();
+//        sensors = sensorsHandlerService.getSensors();
+        sensors = new Sensors();
+        sensors.setWaterTop(false);
+        sensors.setWaterBottom(true);
         pumps = deviceRepository.findByType(DeviceType.PUMP);
         leds = deviceRepository.findByType(DeviceType.LED);
         lights = deviceRepository.findByType(DeviceType.LIGHT);
